@@ -132,16 +132,25 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 在 ACP 中执行自动观测任务：
 
-1. 打开 ACP，连接望远镜和 CCD 相机。
-2. 选择脚本 `AcquireImages.js`。
+1. 打开 ACP，连接望远镜和 CCD 相机：
+
+   -连接望远镜：ACP左上角第二个选项“Telescope”中点击"Connect";连接成功后选项“Telescope”中第一行变为"Disconnect"；
+   
+   -连接CCD相机：ACP左上角第三个选项“Camera”中点击"Connect";连接成功后选项“Camera”中第一行变为"Disconnect"；
+
+2. 选择脚本 `AcquireImages.js`：点击ACP右上角"Select the Script..."，在弹出的窗口中选择第一个选项“AcquireImages.js”后点击“打开”；
+
 3. 载入已复核的 `txt` 观测列表，确认文件路径、数据目录和列表首行正确。
+
 4. 检查望远镜状态、CCD 温度和镜盖状态，确认可以开始运动和曝光。
+
 5. 点击 `Run`，记录任务开始时间和所用列表文件名。
+
+   -下图为点击"Run"后的界面，在弹出的窗口中选择本日的观测列表；若观测列表有格式等类型的错误，ACP右下角的"Console output"框中会显示，需修改错误后再次上传观测列表。
 
 这里的“上传”指将观测列表载入 ACP；正式运行前仍需在 ACP 界面复核一次参数。
 
-> 图片：`![ACP 上传观测列表](media/03-01-acp-list.png)`
-> 视频：`<video controls src="media/03-01-acp-list.mp4"></video>`
+![alt text](image-23.png)
 
 ### 3.2 确认图像正常
 
@@ -153,12 +162,15 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 - 图像没有大面积饱和，文件已经写入正确数据目录；
 - CCD 温度、圆顶位置和赤道仪跟踪状态稳定。
 
+-确认目标位置：在MaxIm DL Pro 6 （![alt text](image-24.png)）中打开目标图像，在上方第四个选项"Analyze"中点击"PinPoint Astrometry..."，在中间选项框"Image Parameters"中的Approx.Center中按照观测列表中的坐标信息填入"RA"与"Dec"（具体格式见下图）。点击右下角的"Process"，若运行结果为0.78"/Pixel，可点击MaxIm DL Pro 6 （![alt text](image-24.png)）上方图标中第二行第六个"Information"，在弹出窗口中间的"Mode"选项中选择"Astrometric"，在图像上移动贯标，"Information"框中会显示对应坐标。在图像中找到目标源，在"Mode"选项中选择"Aperture"，点击已找到的目标源位置，"Information"框中会显示FWHM，SNR等信息；FWHM需2.0左右，SNR不能过低。
+
+![alt text](image-25.png)
+![alt text](image-26.png)
+
 运行中定时查看天气、圆顶、镜盖、滤镜切换、CCD 温度、图像落盘和 FWHM 等状态。发现报警或图像质量明显恶化时，先暂停或在 ACP 中执行 `Abort`，记录当前目标和原因，再决定是否恢复。
 
-> 图片：`![ACP 图像检查](media/03-02-image-check.png)`
-> 视频：`<video controls src="media/03-02-image-check.mp4"></video>`
-
 ---
+
 
 ## 4. 关机
 
@@ -166,8 +178,7 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 正式观测结束或安全中止后，利用出夜时段按校准方案补拍 Flat 和 Bias。确认文件已写入 `Flat`、`Bias` 目录，并记录滤镜、曝光、张数、温度和文件范围。平场若出现亮星、饱和或明显异常，应标记为不合格并按规程重拍。
 
-> 图片：`![出夜平场本底](media/04-01-dawn-calibration.png)`
-> 视频：`<video controls src="media/04-01-dawn-calibration.mp4"></video>`
+本小节与2.4小节入夜拍平场本底操作流程和要求一致，但波段拍摄顺序相反，为gp —> ip  —> B  —> rp  —> V —> up。
 
 ### 4.2 关闭镜盖、天窗
 
@@ -175,44 +186,65 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 附件原始流程对镜盖、天窗和 Park 的先后顺序有不同写法，本小节先沿用当前章节顺序，正式版应在现场确认后固定唯一顺序。
 
-> 图片：`![关闭镜盖和天窗](media/04-02-close-cover-dome.png)`
-> 视频：`<video controls src="media/04-02-close-cover-dome.mp4"></video>`
+1.在软件“ASA Alpaca Gatew.”（ACC，软件图标 ![alt text](image-28.png)）的第二行六个图标中，选择第三个图标“Selects Covers”（![alt text](image-27.png)），点击“Close”，即可关闭望远镜镜盖。完成时 Cover1 和 Cover2 的状态为 “Closed”，角度为00度，见下方图片。
+
+![alt text](image-29.png)
+
+2.在全天域控制系统（图标 ![alt text](image-30.png)）中点击“天窗关”，此时观察软件“iVMS-4200”即可发现站台天窗在逐步关闭，天窗关闭完成时，“天窗关”后面按钮变为“关到位”，见下方图片。
+
+![alt text](image-31.png)
 
 ### 4.3 CCD 温度处理
 
 本小节沿用用户提供的编号；“CCD 降温”在关机流程中可能实际指停止制冷并升温，请现场确认术语。确认后：
 
-1. 在 MaxIm DL Pro 6 中停止冷却，按设备规程让 CCD 回到规定温度范围。
-2. 等待温度变化稳定，确认没有正在进行的读出或文件写入。
-3. 未完成升温前不要直接关闭相机电源。
+1. 在 MaxIm DL Pro 6 （![alt text](image-24.png)）中停止冷却，按设备规程让 CCD 回到规定温度范围。
 
-> 图片：`![CCD 温度处理](media/04-03-ccd-temperature.png)`
-> 视频：`<video controls src="media/04-03-ccd-temperature.mp4"></video>`
+-在"Camera Control"中左上角三个选项中选择"Setup"，在右侧中部的"Coolers"选项框中点击"Warm Up"，见下方图片；观察下方中间框"Camera 1 Information"中"Sensor Temp"由运行时设置的-70.0度逐步上升。
+
+![alt text](image-32.png)
+
+2. 等待温度变化稳定，确认没有正在进行的读出或文件写入。
+
+-当升至0度附近，在右侧中部的"Coolers"选项框中点击"Off"，停止升温。
+
+3. 未完成升温前不要直接关闭相机电源。
 
 ### 4.4 望远镜回 Park 位
 
 在确认镜盖和天窗状态安全、运动范围无障碍后，通过 ACP 或 TheSkyX 执行 `Park`。等待位置反馈完成，核对望远镜确实停在 Park 位，再继续断开软件连接。
 
-> 图片：`![望远镜回 Park 位](media/04-04-park.png)`
-> 视频：`<video controls src="media/04-04-park.mp4"></video>`
+-在TheSkyX左栏上部分三个并列的选项中选择"Shut Down"，点击第三行的"Park"；停在Park位后，可见"Shut Down"选项下方的Status后以绿字显示"Parked"，见下方图片。
+
+![alt text](image-33.png)
 
 ### 4.5 关闭 ACP、MaxIm DL Pro 6
 
 确认任务停止、CCD 已完成温度处理、图像和日志均已写盘后：
 
 1. 在 ACP 中断开望远镜和 CCD 相机连接，然后关闭 ACP。
-2. 在 MaxIm DL Pro 6 中确认冷却器关闭、相机连接断开，再关闭软件。
-3. 不要在图像写入或 CCD 仍处于冷却状态时强制结束软件或断电。
 
-> 图片：`![关闭 ACP 和 MaxIm DL Pro 6](media/04-05-close-software.png)`
-> 视频：`<video controls src="media/04-05-close-software.mp4"></video>`
+   -断开望远镜：ACP左上角第二个选项“Telescope”中点击"Disonnect";连接成功后选项“Telescope”中第一行变为"Connect"；
+   
+   -断开CCD相机：ACP左上角第三个选项“Camera”中点击"Disconnect";连接成功后选项“Camera”中第一行变为"Connect"；
+
+2. 在 MaxIm DL Pro 6 中确认冷却器关闭、相机连接断开，再关闭软件。
+
+-相机断开连接后，在"Setup"选项下的界面下方的"Camera 1 Information"中无望远镜信息，见下方图片。
+
+![alt text](image-34.png)
+
+3. 不要在图像写入或 CCD 仍处于冷却状态时强制结束软件或断电。
 
 ### 4.6 关闭 Autoslew
 
 在 TheSkyX 已断开、望远镜处于 Park 位后，按现场规程关闭或退出 Autoslew，并确认电机状态和软件状态已经记录。附件原始流程写的是将 Autoslew 置为红色（`Motor is OFF`）但不关闭软件；这与“关闭 Autoslew”的当前要求存在差异，正式版需由设备负责人确认后保留一种做法。
 
-> 图片：`![关闭 Autoslew](media/04-06-close-autoslew.png)`
-> 视频：`<video controls src="media/04-06-close-autoslew.mp4"></video>`
+  -TheSkyX断开：在TheSkyX左栏上部分三个并列的选项中选择"Shut Down"，点击第五行的"Disconnect Telescope"；断开连接后，可见"Shut Down"选项下方的Status后以红字显示"Not Connected"，见下方图片。
+
+![alt text](image-35.png)
+
+---
 
 ---
 
