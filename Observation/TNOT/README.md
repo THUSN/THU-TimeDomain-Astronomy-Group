@@ -9,7 +9,7 @@
 - 识别码：799793344
 - 验证码：nsqh800
 
-![alt text](image.png)
+![alt text](./assets/image.png)
 
 连接上后如需登录：
 
