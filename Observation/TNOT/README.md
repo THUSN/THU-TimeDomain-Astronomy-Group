@@ -9,7 +9,7 @@
 - 识别码：799793344
 - 验证码：nsqh800
 
-<img width="1422" height="348" alt="1-1" src="https://github.com/user-attachments/assets/f3d9157d-176c-41a1-b4f7-2abe7ad12eec" />
+![alt text](image.png)
 
 连接上后如需登录：
 
@@ -28,12 +28,12 @@
 
 1. 实时云量监测；
 
-<img width="3322" height="1538" alt="1-2-1-1" src="https://github.com/user-attachments/assets/8936baec-4e31-4180-9ef2-bdd773391842" />
+![alt text](image-1.png)
 
 图中有无云差异明显，但需注意图像更新时间
 
 2. 天气预报；
-   <img width="1476" height="562" alt="1-2-1-2" src="https://github.com/user-attachments/assets/3a4e6e78-b096-473e-91aa-1aa6d372a9ac" />
+![alt text](image-2.png)
 
 全天云量图中白色为云，蓝色为晴，降雨/降雪标注较为直接
 
@@ -41,7 +41,7 @@
 
 打开 Windy( www.windy.com )，定位到“乌鲁木齐市乌鲁木齐县甘沟乡”，分别查看“雨、雷暴”和“云”图层。沿计划观测时段拖动时间轴，确认降雨、雷暴和云层变化趋势。
 
-<img width="3768" height="1796" alt="1-2-2" src="https://github.com/user-attachments/assets/8cc9aa6b-088a-4fb4-b8fd-8903907a1378" />
+![alt text](image-3.png)
 
 ### 1.3 制定观测计划
 
@@ -75,39 +75,63 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 ### 2.2 开启赤道仪
 
-1. 确认赤道仪电源和急停状态正常。
-2. 打开 Autoslew，查看电机状态和连接状态。
-3. 打开 TheSkyX，在 `Telescope` 中连接望远镜，检查时间、地点和坐标信息。
-4. 若电脑重启或重新打开 Autoslew 后需要校正，按现场规程在 TheSkyX 中完成连接、校正和 Park 检查，再继续后续操作。没有完成校正前，不要直接运行 ACP 自动任务。
+1. 打开 Autoslew （图标 <img width="30" height="30" alt="2-2-1" src="https://github.com/user-attachments/assets/9dd6425d-077a-4cc4-b69e-7f8774a5e828" />
+)，点击红色按钮“Motor is OFF”使其变成绿色按钮“Motor is ON”，即已打开控制赤道仪的电机，望远镜可以调整位置。（注：此软件应为常开状态，即不要关闭此软件，缩小即可)
 
-> 图片：`![Autoslew 和 TheSkyX 开启赤道仪](media/02-02-mount.png)`
-> 视频：`<video controls src="media/02-02-mount.mp4"></video>`
+2. 打开 TheSkyX（图标 <img width="30" height="30" alt="2-2-2" src="https://github.com/user-attachments/assets/7b7a5f40-0da8-4de3-bad5-205c65a9fda9" />
+)，左侧点击“Start up”， 选择“Connect Telescope”连接望远镜，此时下方的 Status 变为“Connected”。随后点击旁边的“Shut down“，选择”Park“，等待进度条跑完，即可将望远镜置于前述待机位（或称Park位)。
+
+3. 再次点击“Shut down“，选择”Unpark“，选择右边天区中高纬度且没有明显星星的天区，鼠标左键点击（此时出现红圈），随后点击左侧中部的“Slew”，等待片刻，望远镜则指向相应位置。（注意保证红圈和黄圈重合，见下图）
+  <img width="3270" height="2920" alt="2-2-3" src="https://github.com/user-attachments/assets/9a0f837c-e9e1-416a-bea6-19f0ee7b3e93" />
+
+注：若电脑重启或重新打开 Autoslew 后需要校正，按现场规程在 TheSkyX 中完成连接、校正和 Park 检查，再继续后续操作。没有完成校正前，不要直接运行 ACP 自动任务。
 
 ### 2.3 开启天窗、镜盖
 
 确认天气合适、无降雨，且监控系统中没有新的天气或设备告警后：
 
-1. 打开全天域控制系统，连接圆顶控制。
-2. 开启天窗（圆顶），观察开启动作、位置反馈和现场监控。附件要求开顶后观察约 3–5 分钟；具体等待时间按台站规程执行。
-3. 在 ACC 中确认镜筒、调焦、镜盖和冷却器状态。
-4. 圆顶稳定、天气确认无误后，再打开镜盖。若位置反馈、动作声音或监控画面异常，立即停止并联系负责人。
+1. 打开全天域控制系统（图标 <img width="30" height="30" alt="2-3-1" src="https://github.com/user-attachments/assets/0bca2ff4-5f9e-42f1-82c2-ad039fbfbd6e" />
+)，连接圆顶控制（如未登录，IP地址：192.168.1.80；连接状态中点击Connect)。
 
-> 图片：`![全天域控制系统和 ACC 开启天窗镜盖](media/02-03-dome-cover.png)`
-> 视频：`<video controls src="media/02-03-dome-cover.mp4"></video>`
+2. 点击“天窗开”，此时观察软件“iVMS-4200”即可发现站台天窗在逐步开启，天窗开启完成时，“天窗开”后面按钮变为“开到位”，见下方图片。（若位置反馈、动作声音或监控画面异常，立即停止并联系负责人。）
+
+  <img width="782" height="592" alt="2-3-2" src="https://github.com/user-attachments/assets/122148c9-60db-4d24-ac21-1a0b5427028f" />
+
+
+3. 圆顶稳定、天气确认无误后，再打开镜盖。打开软件“ASA Alpaca Gatew.”（ACC，软件图标 <img width="30" height="25" alt="2-3-3" src="https://github.com/user-attachments/assets/da9adab7-71f9-48dd-bc2f-83f004780e62" />
+)，在软件内第二行六个图标中，选择第三个图标“Selects Covers”（<img width="40" height="40" alt="2-3-4" src="https://github.com/user-attachments/assets/e8d2b659-e59d-4171-87e1-e4ae45bb5897" />
+)，点击“Open”，即可开启望远镜镜盖。完成时 Cover1 和 Cover2 的状态为 “Open”，角度接近90度。
+
+4. 调焦（后续图片质量检查后可进行此选项）
 
 ### 2.4 入夜拍平场本底
 
-入夜后先按当晚校准方案拍摄 Flat 和 Bias，并将文件保存到 1.4 建立的目录：
+拍摄任务前，先按当晚校准方案拍摄 Flat 和 Bias，并将文件保存到 1.4 建立的目录，注意可拍摄 Flat 的时间较短，拍摄时间可参考前一天，也可参考[乌鲁木齐本地入夜时间](https://richurimo.bmcx.com/gangouxiang_y3__richurimo/)。
 
-1. 在 MaxIm DL Pro 6 中选择对应滤镜、曝光时间、binning 和保存路径。
-2. 平场选择没有亮星的视场，按照入夜时段取数；附件给出的参考要求是 ADU 约 20000–30000、每个波段 5 张、指向有轻微变化、曝光时间大于 3 秒且小于 30 秒。
-3. Bias（本底）的曝光、张数和命名按现行校准规程执行，不要用不清楚来源的旧文件替代当晚记录。
-4. 打开代表性图像检查是否饱和、漏拍、文件名错位或写入错误，再开始正式观测。
+1. 在 MaxIm DL Pro 6 （<img width="30" height="30" alt="2-4-1" src="https://github.com/user-attachments/assets/936602dd-2357-4712-956e-a5995309c3af" />
+）的“Camera Control”（<img width="30" height="30" alt="2-4-2" src="https://github.com/user-attachments/assets/021658be-c440-43ac-914f-c039d3eaacfd" />
+）中，拍摄方式选择“Single”，同时选择合适的滤镜、曝光时间和保存路径，具体要求如下： 
 
-> 图片：`![入夜平场本底](media/02-04-dusk-calibration.png)`
-> 视频：`<video controls src="media/02-04-dusk-calibration.mp4"></video>`
+   - 滤镜选择：左侧中部“Filter”下方选择波段，选择顺序为：up —> V  —> rp  —> B  —> ip —> gp，每个波段拍 5 张、指向有轻微变化（具体操作为：打开 Autoslew （<img width="30" height="30" alt="2-4-3" src="https://github.com/user-attachments/assets/9dd6425d-077a-4cc4-b69e-7f8774a5e828" />）软件，点击右下角的方向键进行某个方向的轻微移动，注意需要移动完成再拍摄，即下方 Ra，De 的绝对值不超过 0.2度。<img width="100" height="30" alt="2-4-4" src="https://github.com/user-attachments/assets/5b594637-f159-4fdf-a867-00c2e8efdbaa" />
+
+
+   - 曝光时间：通过调整曝光时间，保证 ADU 在 20000 到 30000，同时曝光时间需要大于 3 秒且小于 30 秒，若无法同时满足上述要求，说明拍摄时间过早或者过晚。ADU的查看方式为：点击 MaxIm DL Pro 6 上方“information”选项（见下图红框），随后鼠标在图片上滑动，在“information”窗口左上角即可查看相应区域的 ADU。
+
+   - 保存路径：单张拍摄完成后，点击“Save”选项（见下图蓝框），选择 1.4 创建的文件夹，选择 Flat 文件夹，修改图片名称为“Flat_日期_波段_序号”，比如“Flat_20260903_up_01”，随后点击保存即可。
+
+   <img width="823" height="686" alt="2-4-5" src="https://github.com/user-attachments/assets/4a1b0705-0284-4315-ae81-b97709762034" />
+
+
+   
+2. 平场拍摄完成后，拍摄Bias（本底）。在软件“Maxlm DL Pro 6”（<img width="30" height="30" alt="2-4-6" src="https://github.com/user-attachments/assets/936602dd-2357-4712-956e-a5995309c3af" />）的“Camera Control”（<img width="30" height="30" alt="2-4-7" src="https://github.com/user-attachments/assets/021658be-c440-43ac-914f-c039d3eaacfd" />）中，右侧拍摄方式改为“Autosave”，然后点击“Autosave”，修改左上角“Autosave Filename”为“Bias_日期_”，如“Bias_20260903_”，随后点击右侧中部“Option”，选择“Set Image save path...”，选择 1.4 创建的“Bias”文件夹，完成后点击“OK”即可，其他选项默认参考下方图片。再点击“start”，会自动拍8张本底照片。
+
+  <img width="627" height="404" alt="2-4-8" src="https://github.com/user-attachments/assets/20a3c433-2765-4a2e-af95-fd97b05f51f7" />
+
+
+3. 打开代表性图像检查是否饱和、漏拍、文件名错位或写入错误，再开始正式观测。
 
 ---
+
 
 ## 3. 观测
 
