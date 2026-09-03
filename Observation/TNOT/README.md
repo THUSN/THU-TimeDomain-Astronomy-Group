@@ -28,12 +28,12 @@
 
 1. 实时云量监测；
 
-![alt text](image-1.png)
+![alt text](./assets/image-1.png)
 
 图中有无云差异明显，但需注意图像更新时间
 
 2. 天气预报；
-![alt text](image-2.png)
+![alt text](./assets/image-2.png)
 
 全天云量图中白色为云，蓝色为晴，降雨/降雪标注较为直接
 
@@ -41,7 +41,7 @@
 
 打开 Windy( www.windy.com )，定位到“乌鲁木齐市乌鲁木齐县甘沟乡”，分别查看“雨、雷暴”和“云”图层。沿计划观测时段拖动时间轴，确认降雨、雷暴和云层变化趋势。
 
-![alt text](image-3.png)
+![alt text](./assets/image-3.png)
 
 ### 1.3 制定观测计划
 
@@ -61,26 +61,26 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 使用 MaxIm DL Pro 6 连接 CCD：
 
 1. 打开相机控制面板(Toggle Camera Control)，进入 `Setup`。
-![alt text](image-4.png)
+![alt text](./assets/image-4.png)
 
-![alt text](image-5.png)
+![alt text](./assets/image-5.png)
 
 2. 主 CCD 选择 `Camera 1`，进入 `Setup camera`。
 3. 在高级选项'Advanced...'中点击 `Discover`，会自动选择 `DZ936_BV`。
 4. 更改 `HS speed = 1`、`Pre-amp Gain = 2`
-![alt text](image-6.png)
+![alt text](./assets/image-6.png)
 5. 点击两次 `OK` 保存设置，再点击 `Connect`连接相机。
 6. 打开 `Setup-Cooler`，确认目标温度为`-70 °C`后点击 `Coolers-On`开启CCD制冷。
-![alt text](image-7.png)
+![alt text](./assets/image-7.png)
 
 ### 2.2 开启赤道仪
 
-1. 打开 Autoslew （图标 ![alt text](image-8.png)），点击红色按钮“Motor is OFF”使其变成绿色按钮“Motor is ON”，即已打开控制赤道仪的电机，望远镜可以调整位置。（注：此软件应为常开状态，即不要关闭此软件，缩小即可)
+1. 打开 Autoslew （图标 ![alt text](./assets/image-8.png)），点击红色按钮“Motor is OFF”使其变成绿色按钮“Motor is ON”，即已打开控制赤道仪的电机，望远镜可以调整位置。（注：此软件应为常开状态，即不要关闭此软件，缩小即可)
 
-2. 打开 TheSkyX（图标 ![alt text](image-9.png)），左侧点击“Start up”， 选择“Connect Telescope”连接望远镜，此时下方的 Status 变为“Connected”。随后点击旁边的“Shut down“，选择”Park“，等待进度条跑完，即可将望远镜置于前述待机位（或称Park位）。
+2. 打开 TheSkyX（图标 ![alt text](./assets/image-9.png)），左侧点击“Start up”， 选择“Connect Telescope”连接望远镜，此时下方的 Status 变为“Connected”。随后点击旁边的“Shut down“，选择”Park“，等待进度条跑完，即可将望远镜置于前述待机位（或称Park位）。
 
 3. 再次点击“Shut down“，选择”Unpark“，选择右边天区中高纬度且没有明显星星的天区，鼠标左键点击（此时出现红圈），随后点击左侧中部的“Slew”，等待片刻，望远镜则指向相应位置。（注意保证红圈和黄圈重合，见下图）
-![alt text](image-10.png)
+![alt text](./assets/image-10.png)
 
 注：若电脑重启或重新打开 Autoslew 后需要校正，按现场规程在 TheSkyX 中完成连接、校正和 Park 检查，再继续后续操作。没有完成校正前，不要直接运行 ACP 自动任务。
 
@@ -88,14 +88,14 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 确认天气合适、无降雨，且监控系统中没有新的天气或设备告警后：
 
-1. 打开全天域控制系统（图标 ![alt text](image-11.png)），连接圆顶控制（如未登录，IP地址：192.168.1.80；连接状态中点击Connect)。
+1. 打开全天域控制系统（图标 ![alt text](./assets/image-11.png)），连接圆顶控制（如未登录，IP地址：192.168.1.80；连接状态中点击Connect)。
 
 2. 点击“天窗开”，此时观察软件“iVMS-4200”即可发现站台天窗在逐步开启，天窗开启完成时，“天窗开”后面按钮变为“开到位”，见下方图片。（若位置反馈、动作声音或监控画面异常，立即停止并联系负责人。）
 
- ![alt text](image-12.png)
+ ![alt text](./assets/image-12.png)
 
 
-3. 圆顶稳定、天气确认无误后，再打开镜盖。打开软件“ASA Alpaca Gatew.”（ACC，软件图标![alt text](image-13.png)），在软件内第二行六个图标中，选择第三个图标“Selects Covers”（![alt text](image-14.png)），点击“Open”，即可开启望远镜镜盖。完成时 Cover1 和 Cover2 的状态为 “Open”，角度接近90度。
+3. 圆顶稳定、天气确认无误后，再打开镜盖。打开软件“ASA Alpaca Gatew.”（ACC，软件图标![alt text](./assets/image-13.png)），在软件内第二行六个图标中，选择第三个图标“Selects Covers”（![alt text](./assets/image-14.png)），点击“Open”，即可开启望远镜镜盖。完成时 Cover1 和 Cover2 的状态为 “Open”，角度接近90度。
 
 4. 调焦（后续图片质量检查后可进行此选项）
 
@@ -103,22 +103,22 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 拍摄任务前，先按当晚校准方案拍摄 Flat 和 Bias，并将文件保存到 1.4 建立的目录，注意可拍摄 Flat 的时间较短，拍摄时间可参考前一天，也可参考[乌鲁木齐本地入夜时间](https://richurimo.bmcx.com/gangouxiang_y3__richurimo/)。
 
-1. 在 MaxIm DL Pro 6 （![alt text](image-15.png)）的“Camera Control”（![alt text](image-16.png)）中，拍摄方式选择“Single”，同时选择合适的滤镜、曝光时间和保存路径，具体要求如下： 
+1. 在 MaxIm DL Pro 6 （![alt text](./assets/image-15.png)）的“Camera Control”（![alt text](./assets/image-16.png)）中，拍摄方式选择“Single”，同时选择合适的滤镜、曝光时间和保存路径，具体要求如下： 
 
-   - 滤镜选择：左侧中部“Filter”下方选择波段，选择顺序为：up —> V  —> rp  —> B  —> ip —> gp，每个波段拍 5 张、指向有轻微变化（具体操作为：打开 Autoslew （![alt text](image-17.png)）软件，点击右下角的方向键进行某个方向的轻微移动，注意需要移动完成再拍摄，即下方 Ra，De 的绝对值不超过 0.2度。![alt text](image-18.png)
+   - 滤镜选择：左侧中部“Filter”下方选择波段，选择顺序为：up —> V  —> rp  —> B  —> ip —> gp，每个波段拍 5 张、指向有轻微变化（具体操作为：打开 Autoslew （![alt text](./assets/image-17.png)）软件，点击右下角的方向键进行某个方向的轻微移动，注意需要移动完成再拍摄，即下方 Ra，De 的绝对值不超过 0.2度。![alt text](./assets/image-18.png)
 
 
    - 曝光时间：通过调整曝光时间，保证 ADU 在 20000 到 30000，同时曝光时间需要大于 3 秒且小于 30 秒，若无法同时满足上述要求，说明拍摄时间过早或者过晚。ADU的查看方式为：点击 MaxIm DL Pro 6 上方“information”选项（见下图红框），随后鼠标在图片上滑动，在“information”窗口左上角即可查看相应区域的 ADU。
 
    - 保存路径：单张拍摄完成后，点击“Save”选项（见下图蓝框），选择 1.4 创建的文件夹，选择 Flat 文件夹，修改图片名称为“Flat_日期_波段_序号”，比如“Flat_20260903_up_01”，随后点击保存即可。
 
-   ![alt text](image-19.png)
+   ![alt text](./assets/image-19.png)
 
 
    
-2. 平场拍摄完成后，拍摄Bias（本底）。在软件“Maxlm DL Pro 6”（![alt text](image-20.png)）的“Camera Control”（![alt text](image-21.png)）中，右侧拍摄方式改为“Autosave”，然后点击“Autosave”，修改左上角“Autosave Filename”为“Bias_日期_”，如“Bias_20260903_”，随后点击右侧中部“Option”，选择“Set Image save path...”，选择 1.4 创建的“Bias”文件夹，完成后点击“OK”即可，其他选项默认参考下方图片。再点击“start”，会自动拍8张本底照片。
+2. 平场拍摄完成后，拍摄Bias（本底）。在软件“Maxlm DL Pro 6”（![alt text](./assets/image-20.png)）的“Camera Control”（![alt text](./assets/image-21.png)）中，右侧拍摄方式改为“Autosave”，然后点击“Autosave”，修改左上角“Autosave Filename”为“Bias_日期_”，如“Bias_20260903_”，随后点击右侧中部“Option”，选择“Set Image save path...”，选择 1.4 创建的“Bias”文件夹，完成后点击“OK”即可，其他选项默认参考下方图片。再点击“start”，会自动拍8张本底照片。
 
-![alt text](image-22.png)
+![alt text](./assets/image-22.png)
 
 
 3. 打开代表性图像检查是否饱和、漏拍、文件名错位或写入错误，再开始正式观测。
@@ -150,7 +150,7 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 这里的“上传”指将观测列表载入 ACP；正式运行前仍需在 ACP 界面复核一次参数。
 
-![alt text](image-23.png)
+![alt text](./assets/image-23.png)
 
 ### 3.2 确认图像正常
 
@@ -162,10 +162,10 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 - 图像没有大面积饱和，文件已经写入正确数据目录；
 - CCD 温度、圆顶位置和赤道仪跟踪状态稳定。
 
--确认目标位置：在MaxIm DL Pro 6 （![alt text](image-24.png)）中打开目标图像，在上方第四个选项"Analyze"中点击"PinPoint Astrometry..."，在中间选项框"Image Parameters"中的Approx.Center中按照观测列表中的坐标信息填入"RA"与"Dec"（具体格式见下图）。点击右下角的"Process"，若运行结果为0.78"/Pixel，可点击MaxIm DL Pro 6 （![alt text](image-24.png)）上方图标中第二行第六个"Information"，在弹出窗口中间的"Mode"选项中选择"Astrometric"，在图像上移动贯标，"Information"框中会显示对应坐标。在图像中找到目标源，在"Mode"选项中选择"Aperture"，点击已找到的目标源位置，"Information"框中会显示FWHM，SNR等信息；FWHM需2.0左右，SNR不能过低。
+-确认目标位置：在MaxIm DL Pro 6 （![alt text](./assets/image-24.png)）中打开目标图像，在上方第四个选项"Analyze"中点击"PinPoint Astrometry..."，在中间选项框"Image Parameters"中的Approx.Center中按照观测列表中的坐标信息填入"RA"与"Dec"（具体格式见下图）。点击右下角的"Process"，若运行结果为0.78"/Pixel，可点击MaxIm DL Pro 6 （![alt text](./assets/image-24.png)）上方图标中第二行第六个"Information"，在弹出窗口中间的"Mode"选项中选择"Astrometric"，在图像上移动贯标，"Information"框中会显示对应坐标。在图像中找到目标源，在"Mode"选项中选择"Aperture"，点击已找到的目标源位置，"Information"框中会显示FWHM，SNR等信息；FWHM需2.0左右，SNR不能过低。
 
-![alt text](image-25.png)
-![alt text](image-26.png)
+![alt text](./assets/image-25.png)
+![alt text](./assets/image-26.png)
 
 运行中定时查看天气、圆顶、镜盖、滤镜切换、CCD 温度、图像落盘和 FWHM 等状态。发现报警或图像质量明显恶化时，先暂停或在 ACP 中执行 `Abort`，记录当前目标和原因，再决定是否恢复。
 
@@ -186,23 +186,23 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 附件原始流程对镜盖、天窗和 Park 的先后顺序有不同写法，本小节先沿用当前章节顺序，正式版应在现场确认后固定唯一顺序。
 
-1.在软件“ASA Alpaca Gatew.”（ACC，软件图标 ![alt text](image-28.png)）的第二行六个图标中，选择第三个图标“Selects Covers”（![alt text](image-27.png)），点击“Close”，即可关闭望远镜镜盖。完成时 Cover1 和 Cover2 的状态为 “Closed”，角度为00度，见下方图片。
+1.在软件“ASA Alpaca Gatew.”（ACC，软件图标 ![alt text](./assets/image-28.png)）的第二行六个图标中，选择第三个图标“Selects Covers”（![alt text](./assets/image-27.png)），点击“Close”，即可关闭望远镜镜盖。完成时 Cover1 和 Cover2 的状态为 “Closed”，角度为00度，见下方图片。
 
-![alt text](image-29.png)
+![alt text](./assets/image-29.png)
 
-2.在全天域控制系统（图标 ![alt text](image-30.png)）中点击“天窗关”，此时观察软件“iVMS-4200”即可发现站台天窗在逐步关闭，天窗关闭完成时，“天窗关”后面按钮变为“关到位”，见下方图片。
+2.在全天域控制系统（图标 ![alt text](./assets/image-30.png)）中点击“天窗关”，此时观察软件“iVMS-4200”即可发现站台天窗在逐步关闭，天窗关闭完成时，“天窗关”后面按钮变为“关到位”，见下方图片。
 
-![alt text](image-31.png)
+![alt text](./assets/image-31.png)
 
 ### 4.3 CCD 温度处理
 
 本小节沿用用户提供的编号；“CCD 降温”在关机流程中可能实际指停止制冷并升温，请现场确认术语。确认后：
 
-1. 在 MaxIm DL Pro 6 （![alt text](image-24.png)）中停止冷却，按设备规程让 CCD 回到规定温度范围。
+1. 在 MaxIm DL Pro 6 （![alt text](./assets/image-24.png)）中停止冷却，按设备规程让 CCD 回到规定温度范围。
 
 -在"Camera Control"中左上角三个选项中选择"Setup"，在右侧中部的"Coolers"选项框中点击"Warm Up"，见下方图片；观察下方中间框"Camera 1 Information"中"Sensor Temp"由运行时设置的-70.0度逐步上升。
 
-![alt text](image-32.png)
+![alt text](./assets/image-32.png)
 
 2. 等待温度变化稳定，确认没有正在进行的读出或文件写入。
 
@@ -216,7 +216,7 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 -在TheSkyX左栏上部分三个并列的选项中选择"Shut Down"，点击第三行的"Park"；停在Park位后，可见"Shut Down"选项下方的Status后以绿字显示"Parked"，见下方图片。
 
-![alt text](image-33.png)
+![alt text](./assets/image-33.png)
 
 ### 4.5 关闭 ACP、MaxIm DL Pro 6
 
@@ -232,7 +232,7 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 -相机断开连接后，在"Setup"选项下的界面下方的"Camera 1 Information"中无望远镜信息，见下方图片。
 
-![alt text](image-34.png)
+![alt text](./assets/image-34.png)
 
 3. 不要在图像写入或 CCD 仍处于冷却状态时强制结束软件或断电。
 
@@ -242,7 +242,7 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
   -TheSkyX断开：在TheSkyX左栏上部分三个并列的选项中选择"Shut Down"，点击第五行的"Disconnect Telescope"；断开连接后，可见"Shut Down"选项下方的Status后以红字显示"Not Connected"，见下方图片。
 
-![alt text](image-35.png)
+![alt text](./assets/image-35.png)
 
 ---
 
