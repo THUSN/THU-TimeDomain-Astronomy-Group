@@ -54,6 +54,25 @@ E:\Data文件夹在文件夹左侧快速访问中可方便找到
 
 ---
 
+## 2. 开机
+
+### 2.1 开启 CCD
+
+使用 MaxIm DL Pro 6 连接 CCD：
+
+1. 打开相机控制面板(Toggle Camera Control)，进入 `Setup`。
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+2. 主 CCD 选择 `Camera 1`，进入 `Setup camera`。
+3. 在高级选项'Advanced...'中点击 `Discover`，会自动选择 `DZ936_BV`。
+4. 更改 `HS speed = 1`、`Pre-amp Gain = 2`
+![alt text](image-6.png)
+5. 点击两次 `OK` 保存设置，再点击 `Connect`连接相机。
+6. 打开 `Setup-Cooler`，确认目标温度为`-70 °C`后点击 `Coolers-On`开启CCD制冷。
+![alt text](image-7.png)
+
 ### 2.2 开启赤道仪
 
 1. 打开 Autoslew （图标 <img width="30" height="30" alt="2-2-1" src="https://github.com/user-attachments/assets/9dd6425d-077a-4cc4-b69e-7f8774a5e828" />
