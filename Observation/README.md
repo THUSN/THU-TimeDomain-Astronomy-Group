@@ -4,3 +4,5 @@
 
 # 大型望远镜proposal示例
 
+# TNOT
+祝海畅 & 胡正言总结了TNOT的观测流程详见[./TNOT](./TNOT)
