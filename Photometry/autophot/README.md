@@ -120,7 +120,131 @@ python Autophot.py autophot_simple.yaml
 
 脚本先载入上游 Autophot 的全部默认参数，再用 `autophot_simple.yaml` 中出现的项目覆盖对应默认值，最后调用 `run_automatic_autophot()`。因此精简 YAML 中没有写出的参数仍采用当前安装版本的默认值。
 
-## 6. 生成默认参数文件
+## 6. 使用模板相减
+
+当目标位于宿主星系等复杂背景上时，可以使用模板相减。模板图像应是目标尚未出现或已经消失时拍摄的同一天区图像。
+
+### 6.1 设置 HOTPANTS 路径
+
+激活 `autophot_env` 后，先查找服务器上 HOTPANTS 的实际路径：
+
+```bash
+conda activate autophot_env
+which hotpants
+```
+
+例如输出为：
+
+```text
+/usr/local/bin/hotpants
+```
+
+把该绝对路径写入 YAML，并开启模板相减：
+
+```yaml
+template_subtraction:
+  do_subtraction: true
+  prepare_templates: true
+  hotpants_exe_loc: /usr/local/bin/hotpants
+```
+
+- `do_subtraction: true`：对科学图像进行模板相减；
+- `prepare_templates: true`：准备模板目录和模板图像；
+- `hotpants_exe_loc`：`which hotpants` 返回的可执行文件绝对路径。
+
+如果 `which hotpants` 没有任何输出，说明当前环境找不到 HOTPANTS。此时不要随意填写路径，应先联系管理员或 ysy 确认安装位置。
+
+部分 AutoPhOT 版本也支持 ZOGY 等其他减模板算法。服务器版本实际支持的算法和选择参数，请先运行 `-D` 生成完整配置并查看 `template_subtraction` 部分；不要直接照搬其他版本的参数名。当前上游版本使用 `method: zogy` 选择 ZOGY，但 278 服务器安装的旧版未必使用同一个键名。
+
+### 6.2 使用自己的模板图像
+
+在 YAML 的 `fits_dir` 所指向的数据目录中建立 `templates`，再按滤光片分别建立 `<滤光片>_template` 子目录：
+
+```bash
+cd ~/yanshy/SN2021agco/image/TNT/phot1
+mkdir -p templates/{rp_template,ip_template,gp_template,B_template,V_template}
+```
+
+目录名与图像中的滤光片名称应一一对应：
+
+| 科学图像滤光片 | 模板目录 |
+| --- | --- |
+| `rp` | `templates/rp_template/` |
+| `ip` | `templates/ip_template/` |
+| `gp` | `templates/gp_template/` |
+| `B` | `templates/B_template/` |
+| `V` | `templates/V_template/` |
+
+如果还有其他滤光片，也使用相同规则，例如 `zs` 对应 `templates/zs_template/`，`U` 对应 `templates/U_template/`，`R` 对应 `templates/R_template/`，`I` 对应 `templates/I_template/`。大小写必须与 FITS 头及 `telescope.yml` 中的滤光片定义一致。
+
+把每个波段对应的模板 FITS 文件放入相应目录。
+
+最终目录结构示例：
+
+```text
+phot1/
+├── autophot_simple.yaml
+├── science_001.fits
+├── science_002.fits
+└── templates/
+    ├── rp_template/
+    │   └── rp_template.fits
+    ├── ip_template/
+    │   └── ip_template.fits
+    ├── gp_template/
+    │   └── gp_template.fits
+    ├── B_template/
+    │   └── B_template.fits
+    └── V_template/
+        └── V_template.fits
+```
+
+每个滤光片目录建议只放一幅最终采用的模板。模板应覆盖科学图像的目标区域，具有正确或可求解的 WCS，并尽量选择背景干净、视宁度较好且没有目标暂现源的图像。
+
+### 6.3 自动下载 Pan-STARRS 模板
+
+如果目标天区在 Pan-STARRS 覆盖范围内，可以让 AutoPhOT 自动下载对应天区的模板。YAML 中同时设置：
+
+```yaml
+catalog:
+  use_catalog: pan_starrs
+
+template_subtraction:
+  do_subtraction: true
+  prepare_templates: true
+  get_PS1_template: true
+  hotpants_exe_loc: /usr/local/bin/hotpants
+```
+
+这里需要特别注意：
+
+- `catalog.use_catalog` 必须设为 `pan_starrs`；
+- `get_PS1_template: true` 必须位于 `template_subtraction` 下面，并保持正确缩进；
+- `target_ra`、`target_dec` 和科学图像 WCS 必须正确；
+- 服务器需要能够访问 Pan-STARRS 数据服务；
+- Pan-STARRS 主要提供 `g`、`r`、`i`、`z`、`y` 波段模板，不能直接替代 Johnson `B`、`V` 等不同滤光片的自备模板。
+
+配置正确后，AutoPhOT 会根据目标天区自动从 Pan-STARRS 下载可用模板，并放入相应的模板目录。第一次下载可能较慢，应观察终端输出或 `autophot.log`，确认下载和模板准备步骤成功完成。
+
+如果服务器当前安装版本提示 `get_PS1_template` 不是有效参数，请运行完整默认配置命令：
+
+```bash
+python /home/thusn/yanshy/autophot/Autophot.py -D
+```
+
+然后以生成的 `autophot.yaml` 中实际存在的 Pan-STARRS 模板参数为准。AutoPhOT 不同版本的模板下载参数可能发生变化。
+
+### 6.4 运行及检查
+
+模板准备完成后，仍使用正常命令运行：
+
+```bash
+python /home/thusn/yanshy/autophot/Autophot.py autophot_simple.yaml
+```
+
+运行后应检查减后图像和诊断图，确认模板配准正确，目标位置没有明显的正负偶极残差，亮星附近也没有严重的卷积残差。模板相减完成并不代表结果一定可靠，最终星等仍需结合零点图和减后图像进行质量检查。
+
+## 7. 生成默认参数文件
 
 第一次使用或不清楚某个参数时，可以先生成配置模板。
 
@@ -148,7 +272,7 @@ python /home/thusn/yanshy/autophot/Autophot.py --SD
 python /home/thusn/yanshy/autophot/Autophot.py -h
 ```
 
-## 7. 后台运行（选做）
+## 8. 后台运行（选做）
 
 数据较多时可使用 `nohup`：
 
@@ -166,7 +290,7 @@ tail -f autophot.log
 
 还应提前确认 YAML 中其他路径和参数均正确。建议先以前台方式试跑，确认程序已经开始处理图像后，再使用 `nohup` 批量运行。
 
-## 8. 查看测光结果
+## 9. 查看测光结果
 
 全部测光完成后，程序会在数据目录旁生成名称以 `_REDUCED` 结尾的结果目录。例如，输入目录为：
 
@@ -196,7 +320,7 @@ zeropoint_<image_name>.pdf
 
 应检查零点拟合是否合理、参与定标的星是否存在明显离群点，以及目标测光和模板相减结果是否正常，不要只读取 `REDUCED.csv` 而忽略质量检查。
 
-## 9. 添加新的望远镜或仪器
+## 10. 添加新的望远镜或仪器
 
 如果程序不能识别图像所用的望远镜或仪器，可以先联系 ysy；也可以自行检查 FITS 头并在 `telescope.yml` 中增加配置。
 
